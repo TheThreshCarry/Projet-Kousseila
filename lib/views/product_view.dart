@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -40,10 +42,12 @@ class ProductPage extends StatelessWidget {
                   //margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   height: MediaQuery.of(context).size.height * 0.5,
                   width: MediaQuery.of(context).size.width,
-                  color: Colors.red,
+                  color: Colors.white,
                   child: Image(
                     image: AssetImage("assets/" + product.img_url),
-                    fit: BoxFit.cover,
+                    fit: MediaQuery.of(context).size.width > 1221
+                        ? BoxFit.contain
+                        : BoxFit.cover,
                   ),
                 ),
                 Positioned(
@@ -63,18 +67,24 @@ class ProductPage extends StatelessWidget {
             ),
           ),
           Container(
-            height: (MediaQuery.of(context).size.height * 0.6) - 24,
+            height: Platform.isWindows
+                ? (MediaQuery.of(context).size.height * 0.6)
+                : (MediaQuery.of(context).size.height * 0.6) - 24,
             width: MediaQuery.of(context).size.width,
             color: Colors.green,
             child: Stack(
               children: [
                 Container(
-                  height: (MediaQuery.of(context).size.height * 0.6) - 24,
+                  height: Platform.isWindows
+                      ? (MediaQuery.of(context).size.height * 0.6)
+                      : (MediaQuery.of(context).size.height * 0.6) - 24,
                   width: MediaQuery.of(context).size.width,
                   color: Colors.white,
                 ),
                 Container(
-                  height: (MediaQuery.of(context).size.height * 0.6) - 24,
+                  height: Platform.isWindows
+                      ? (MediaQuery.of(context).size.height * 0.6)
+                      : (MediaQuery.of(context).size.height * 0.6) - 24,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       /* borderRadius: BorderRadius.only(

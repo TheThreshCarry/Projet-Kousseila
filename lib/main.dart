@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:pharmalitech/Data.dart';
 import 'package:pharmalitech/Widgets/ProductCard.dart';
+import 'package:pharmalitech/Widgets/ProductCardDesktop.dart';
 import 'package:pharmalitech/views/cart_view.dart';
 import 'package:sqflite/sqflite.dart';
 import 'Widgets/CustomAppBar.dart';
@@ -136,16 +139,22 @@ class _HomePageState extends State<HomePage> {
                         if (snapshot.hasData) {
                           return GridView.count(
                             childAspectRatio: (0.2 / 0.27),
-                            crossAxisCount: 2,
+                            crossAxisCount:
+                                MediaQuery.of(context).size.width > 1221
+                                    ? 4
+                                    : 2,
                             children:
                                 List.generate(Data.products.length, (index) {
                               print("Generating Item");
-                              return ProductCard(product: Data.products[index]);
+                              return MediaQuery.of(context).size.width > 1221
+                                  ? ProductCardDesktop(
+                                      product: Data.products[index])
+                                  : ProductCard(product: Data.products[index]);
                             }),
                           );
                         } else {
                           print("Waiting For Data");
-                          return Text("Waiting For Data");
+                          return Center(child: Text("Waiting For Data"));
                         }
                       }),
                 )
