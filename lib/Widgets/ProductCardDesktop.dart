@@ -18,7 +18,7 @@ class _ProductCardDesktopState extends State<ProductCardDesktop> {
   @override
   Widget build(BuildContext context) {
     final Product product = widget.product;
-    print("Acutal Width is : " + MediaQuery.of(context).size.width.toString());
+    // print("Acutal Width is : " + MediaQuery.of(context).size.width.toString());
     return GestureDetector(
       onTap: () {
         Navigator.push(

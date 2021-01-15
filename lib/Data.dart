@@ -6,8 +6,10 @@ import 'package:http/http.dart' as http;
 class Data {
   static List<Product> products = [];
   static Future<void> getData() async {
-    //print("im here");
-    final response = await http.get("http://192.168.1.2:8000/json_list");
+    print("im here");
+    print("hello");
+    final response = await http.get("http://192.168.1.15:8000/json_list");
+
     if (response.statusCode == 200) {
       print("Succes in fetching data");
       products = [];

@@ -41,19 +41,19 @@ class Cart {
     return false;
   }
 
-  static int getIndex(CartItem item) {
+  /* static int getIndex(CartItem item) {
     items.forEach((element) {
       if (element.item.name == item.item.name) {
         return items.indexOf(element);
       }
     });
-  }
+  }*/
 
   static void removeItem(CartItem item) {
     if (items.contains(item)) {
       items.remove(item);
     }
-    print("Added " + item.item.name + " Succecufully");
+    print("Removed " + item.item.name + " Succecufully");
   }
 
   static double getPrice() {

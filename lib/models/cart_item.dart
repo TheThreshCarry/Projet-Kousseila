@@ -12,10 +12,10 @@ class CartItem {
     this.item = item;
     this.quantity = quantity;
   }
-  double getPrice() {
+  /*double getPrice() {
     double temp = item.price * quantity;
     return temp;
-  }
+  }*/
 
   void addQuantity() {
     this.quantity++;

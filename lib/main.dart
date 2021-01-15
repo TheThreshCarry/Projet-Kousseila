@@ -140,9 +140,11 @@ class _HomePageState extends State<HomePage> {
                           return GridView.count(
                             childAspectRatio: (0.2 / 0.27),
                             crossAxisCount:
-                                MediaQuery.of(context).size.width > 1221
-                                    ? 4
-                                    : 2,
+                                MediaQuery.of(context).size.width > 1400
+                                    ? 6
+                                    : MediaQuery.of(context).size.width > 1000
+                                        ? 4
+                                        : 2,
                             children:
                                 List.generate(Data.products.length, (index) {
                               print("Generating Item");
@@ -154,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                           );
                         } else {
                           print("Waiting For Data");
-                          return Center(child: Text("Waiting For Data"));
+                          return Center(child: Text("Waiting For Data..."));
                         }
                       }),
                 )
